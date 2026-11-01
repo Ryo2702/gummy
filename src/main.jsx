@@ -166,7 +166,7 @@ const info = [
   ],
   [
     "Shipping & returns",
-    "Demonstration only. This concept is not available to purchase. Pricing, shipping and return policies are not finalized.",
+    "This concept is not available to purchase. Pricing, shipping and return policies are not finalized.",
   ],
 ];
 function Details({ all = false }) {
@@ -706,7 +706,7 @@ function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} AFTR. — THE AFTERHOURS CLUB.</span>
-        <span>AN INDEPENDENT BRAND CONCEPT / DEMO STORE</span>
+        <span>AN INDEPENDENT BRAND CONCEPT</span>
         <a href="#top">BACK TO TOP ↑</a>
       </div>
     </footer>
@@ -768,7 +768,7 @@ function Product({ variant, setVariant, addToBag }) {
           </p>
           <div className="product-price">
             <b>$32.00</b>
-            <Label>DEMO PRICE / NOT FOR SALE</Label>
+            <Label>PREVIEW PRICE / NOT FOR SALE</Label>
           </div>
           <Label>CHOOSE YOUR COLORWAY — {variant.toUpperCase()}</Label>
           <Selector value={variant} onChange={setVariant} />
@@ -779,7 +779,7 @@ function Product({ variant, setVariant, addToBag }) {
             </Button>
           </div>
           <p className="fine">
-            Demonstration only. No payment, order or reservation is created.
+            Ordering is not available yet. Items in your bag are not reserved.
           </p>
           <Details all />
         </div>
@@ -787,7 +787,7 @@ function Product({ variant, setVariant, addToBag }) {
       <div className="mobile-purchase">
         <span>
           AFTR. / {variant.toUpperCase()}
-          <small>$32.00 · DEMO</small>
+          <small>$32.00 · PREVIEW</small>
         </span>
         <Button onClick={() => addToBag(variant, quantity)}>ADD TO BAG</Button>
       </div>
@@ -920,7 +920,7 @@ function Contact() {
               return;
             }
             setMessage(
-              "Your note is ready, but has not been sent. This demo has no messaging integration.",
+              "Your note has not been sent. Messaging is not available yet.",
             );
           }}
         >
@@ -966,7 +966,7 @@ function Contact() {
             />
           </label>
           <p className="fine">
-            Demo form. Fields are validated locally; nothing is sent or stored.
+            Messaging is not available yet. Nothing is sent or stored.
           </p>
           <Button>CHECK YOUR MESSAGE</Button>
           <p className="form-status" role="status">
@@ -983,14 +983,14 @@ function Bag({ dialog, cart, setCart }) {
     <dialog
       ref={dialog}
       className="cart"
-      aria-label="Your demo bag"
+      aria-label="Your bag"
       onClick={(e) => {
         if (e.target === dialog.current) dialog.current.close();
       }}
     >
       <div className="cart-inner">
         <div className="cart-heading">
-          <Label>YOUR AFTERHOURS / DEMO BAG</Label>
+          <Label>YOUR AFTERHOURS / YOUR BAG</Label>
           <button aria-label="Close bag" onClick={() => dialog.current.close()}>
             <X />
           </button>
@@ -1014,7 +1014,7 @@ function Bag({ dialog, cart, setCart }) {
                   <ProductImage variant={key} />
                   <div>
                     <h3>AFTR. / {key.toUpperCase()}</h3>
-                    <Label>RECOVERY GUMMY CONCEPT · $32 DEMO</Label>
+                    <Label>RECOVERY GUMMY CONCEPT · $32 PREVIEW</Label>
                     <Quantity
                       value={n}
                       label={key}
@@ -1030,11 +1030,11 @@ function Bag({ dialog, cart, setCart }) {
                 </div>
               ))}
             <div className="cart-total">
-              <span>DEMO SUBTOTAL</span>
+              <span>SUBTOTAL</span>
               <b>${(count * 32).toFixed(2)}</b>
             </div>
             <p className="fine">
-              This is a demonstration bag. Nothing is reserved, and checkout is
+              Nothing is reserved, and checkout is
               not available. All commercial information is placeholder data.
             </p>
             <button className="button" onClick={() => dialog.current.close()}>

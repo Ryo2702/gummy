@@ -11,7 +11,7 @@ test("cart quantities remain valid and variants remain independent", () => {
   assert.deepEqual(updateCart(c, "volt", 1.5), c);
 });
 import { readCart } from "./cart.js";
-test("stored demo bags are validated before use", () => {
+test("stored bags are validated before use", () => {
   assert.deepEqual(readCart('{"volt":3,"eclipse":200,"fake":1}'), {
     volt: 3,
     eclipse: 99,
