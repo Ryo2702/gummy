@@ -1,28 +1,36 @@
-# AFTR.
-Original recovery brand portfolio demo built with React, Vite, Tailwind CSS, GSAP ScrollTrigger, Motion, and Lenis. JSX only.
+# AFTR. — The Afterhours Club
 
-## Development
-Requires Node.js 20.19+ or 22.12+.
+An original, entirely 2D nighttime brand campaign and demo storefront. React + Vite, JSX, Tailwind CSS, GSAP/ScrollTrigger, Motion and Lenis. No WebGL, 3D assets, payment services or backend.
+
+## Run
 
 ```sh
 npm install
 npm run dev
-```
-
-## Verify and build
-```sh
 npm test
 npm run build
 ```
 
-Deploy to Vercel using the Vite preset, build command `npm run build`, output directory `dist`. No environment variables or backend are required.
+Pages: `/`, `/product`, `/about`, `/contact`. `/product?colorway=volt` selects Volt. Vite handles local route fallbacks; Netlify and Vercel fallback configurations are included. Other static hosts must rewrite application routes to `index.html`.
 
-## Structure
-- `src/main.jsx`: page sections, layered packaging artwork, forms, and native modal shopping bag
-- `src/style.css`: responsive design, packaging, and reduced-motion behavior
-- `src/cart.js`: centralized variants and bounded cart quantity updates
-- `src/cart.test.js`: cart state validation
+## Implementation
 
-The packaging is original CSS artwork with live readable typography; Blender was unavailable. Photography is delivered through Unsplash responsive image URLs; fonts use Google Fonts. These require an internet connection. Replace remote assets with licensed local production media before launch if offline delivery is needed.
+- `src/main.jsx`: reusable image, selector, quantity, accordion, navigation and bag components; campaign sections and four page compositions.
+- `src/style.css`: desktop/mobile art direction, typography, photographic layers, masking and reduced-motion rules.
+- `src/cart.js`: shared packaging definitions and validated cart updates/storage parsing.
+- `src/cart.test.js`: quantity boundaries, colorway isolation and malformed storage checks.
+- `public/images`: optimized original WebP campaign photography and transparent packaging assets. Small responsive variants are included for photographic scenes.
 
-Prices, ingredients, dosage, shipping, contact channels, and checkout are intentionally unverified. No actual orders, subscriptions, or messages are submitted. Cart state lives in memory. Forms validate locally; replace their submit handlers with provider integration and server validation when approved. Both variants represent the same core concept, with different packaging.
+GSAP uses matchMedia cleanup, Lenis is destroyed on cleanup, and its ticker is removed. Reduced-motion mode disables the introduction, smooth scrolling, marquee, parallax, CSS transitions and animated product entrances. Native dialogs provide keyboard trapping and Escape dismissal. Native links preserve normal browser navigation. The demo bag persists across page loads in sessionStorage, with validation and an in-memory fallback if storage is unavailable.
+
+## Assets
+
+Original runner, gummy macro and packaging images were created with the built-in image generation tool. Final creative briefs and asset provenance are in `public/images/ASSETS.md`. Supporting lifestyle photographs are responsive Unsplash images. Google Fonts supplies Archivo Black, Space Grotesk and DM Mono. Supporting photographs and fonts require network access.
+
+## Demo boundaries
+
+Both colorways represent the same unverified product concept. $32 is explicitly demonstration pricing. Formula, ingredients, allergens, directions, suitability, shipping and returns are placeholders. No medical benefits, clinical results, real orders or successful payments are claimed. Contact fields validate locally; submissions are never sent or stored. Supply verified product data and real service integrations before commercial use.
+
+## Verification
+
+Cart tests and production build pass. Chromium checks cover colorway transitions, quantity updates, demo totals, cart persistence across pages, removal, dialog Escape dismissal, form validation and non-delivery messaging, mobile navigation and reduced motion. All four pages were checked for overflow at 320px, 390px and 768px; the desktop campaign was visually checked at 1440px. Physical-device performance and non-Chromium browsers have not been tested.
