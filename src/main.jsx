@@ -775,7 +775,7 @@ function Product({ variant, setVariant, addToBag }) {
           <div className="buy-row">
             <Quantity value={quantity} onChange={setQuantity} />
             <Button onClick={() => addToBag(variant, quantity)}>
-              ADD TO DEMO BAG
+              ADD TO BAG
             </Button>
           </div>
           <p className="fine">
